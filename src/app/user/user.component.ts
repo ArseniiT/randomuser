@@ -1,7 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-user',
-  templateUrl: './user.component.html'
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.scss']
 })
-export class UserComponent
+export class UserComponent {
+
+  @Input() userComponent;
+
+}
