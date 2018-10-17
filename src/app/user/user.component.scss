@@ -1,0 +1,17 @@
+.card-content {
+  height: 100px;
+}
+
+.checked {
+  font-weight: bold;
+  color: red !important;
+  text-transform: uppercase;
+  transition: color 0.5s;
+  /* transition: text-transform 0.5s; */
+}
+
+.hovered {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba (0,0,0.0.51);
+  transition: 0.5s all;
+}

@@ -7,6 +7,14 @@ import { Component, Input } from '@angular/core';
 })
 export class UserComponent {
 
+  isChecked: boolean = false;
+
   @Input() userComponent;
+
+  onClick() {
+    this.isChecked = !this.isChecked;
+    console.log(this.isChecked);
+
+  }
 
 }

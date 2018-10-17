@@ -13,11 +13,11 @@ export class AppComponent {
 
   constructor(private userService: UserService) {}
 
-  ngOnInit(): void {
-    //this.users = this.userService.users;
-    this.userService.getUsers().subscribe(users => {
-      console.log(users);
-    });
+  ngOnInit() {
+    this.userService.getUsers()
+    .subscribe( data => {
+      this.users = data;
+    })
   }
 
 

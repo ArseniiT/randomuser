@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { map } from 'rxjs/operators';
+import { Observable, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,26 +13,23 @@ export class UserService {
 
   getUsers() {
     return this.http.get('https://randomuser.me/api/?inc=gender,name,picture,location&results=8&nat=gb')
-    /* //.pipe(map(response => response.json()))
-    .pipe(map(response => response.results))
-    .pipe(map(users => {
-        return users.map(u => {
-            return {
-                name: u.name.first + ' ' + u.name.last,
-                geo: u.location.city,
-                image: u.picture.large
-            }
-        })
-    }) */
-  }
+    .pipe(map(response => {return  response['results']} ))
+    .pipe(map( users => {
+      return users.map(u => {
+        return {name: u.name.first + ' ' + u.name.last,
+                image: u.picture.large,
+                geo: u.location.city + ' ' + u.location.state + ' ' + u.location.street
+                }
+      })
+    }))
+    }
 
-  users = [
+  /* users = [
     {name: 'Carl'},
     {name: 'John'},
     {name: 'Sylvian'},
     {name: 'Bob'},
     {name: 'Bob'},
     {name: 'Jackie'}
-  ]
-
+  ] */
 }

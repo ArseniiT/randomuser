@@ -1,15 +1,19 @@
-<div class="col xl3">
-  <div class="card">
+<div class="col xl3" >
+  <div class="card" appHover>
     <div class="card-image">
-      <img src="https://materializecss.com/images/sample-1.jpg">
-      <span class="card-title">{{ userComponent.name }}</span>
+      <img src="{{ userComponent.image }}">
+      <span
+        class="card-title"
+        [ngClass] = "{'checked': isChecked}"
+        >{{ userComponent.name }}</span>
     </div>
     <div class="card-content">
-      <p>I am a very simple card. I am good at containing small bits of information.
-      I am convenient because I require little markup to use effectively.</p>
+      <p>{{ userComponent.geo }}</p>
     </div>
     <div class="card-action">
-      <a href="#">This is a link</a>
+      <a
+      (click)="onClick()"
+      class="waves-effect waves-light btn">check</a>
     </div>
   </div>
 </div>
