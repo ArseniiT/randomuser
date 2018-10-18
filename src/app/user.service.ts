@@ -9,10 +9,12 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class UserService {
 
+  size = 8;
+
   constructor(private http: HttpClient) {}
 
   getUsers() {
-    return this.http.get('https://randomuser.me/api/?inc=gender,name,picture,location&results=8&nat=gb')
+    return this.http.get(`https://randomuser.me/api/?inc=gender,name,picture,location&results=${this.size}&nat=gb`)
     .pipe(map(response => {return  response['results']} ))
     .pipe(map( users => {
       return users.map(u => {
@@ -24,12 +26,8 @@ export class UserService {
     }))
     }
 
-  /* users = [
-    {name: 'Carl'},
-    {name: 'John'},
-    {name: 'Sylvian'},
-    {name: 'Bob'},
-    {name: 'Bob'},
-    {name: 'Jackie'}
-  ] */
+    setSize(size) {
+      this.size = size;
+    }
+
 }
