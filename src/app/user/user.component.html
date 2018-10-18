@@ -5,7 +5,7 @@
       <span
         class="card-title"
         [ngClass] = "{'checked': isChecked}"
-        >{{ userComponent.name }}</span>
+        >{{ userComponent.name | uppercase }}</span>
     </div>
     <div class="card-content">
       <p>{{ userComponent.geo }}</p>
